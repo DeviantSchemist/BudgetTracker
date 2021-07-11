@@ -1,5 +1,5 @@
 let db
-const request = indexedDB.open('menu', 1)
+const request = indexedDB.open('transaction', 1)
 
 request.onupgradeneeded = ({ target }) => {
   db = target.result
