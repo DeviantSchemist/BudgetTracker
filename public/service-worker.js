@@ -1,6 +1,5 @@
 const urls = [
   '/',
-  '/auth.html',
   '/index.html',
   '/manifest.json',
   '/icons/icon-192x192.png',
@@ -9,14 +8,14 @@ const urls = [
 
 self.addEventListener('install', event => {
   event.waitUntil(
-    caches.open('menu-cache-v1')
+    caches.open('transaction-cache-v1')
       .then(cache => cache.addAll(urls)))
 })
 
 self.addEventListener('fetch', event => {
   if (event.request.url.includes('/api/')) {
     event.respondWith(
-      caches.open('menu-data-cache-v1').then(cache => {
+      caches.open('transactation-data-cache-v1').then(cache => {
         return fetch(event.request)
           .then(res => {
             console.log('Not failing')
