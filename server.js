@@ -28,6 +28,6 @@ app.use(require("./routes/api.js"));
 //   console.log(`App running on port ${PORT}!`);
 // });
 
-app.listen(process.env.PORT || 3000, () => {
-  console.log('App is running!')
+app.listen(process.env.PORT || PORT, () => {
+  console.log(`App is running on port ${process.env.PORT ? process.env.PORT : PORT}!`)
 })
